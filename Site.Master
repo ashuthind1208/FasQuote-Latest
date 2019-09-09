@@ -1,0 +1,231 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ChangeRequest.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="Chrome=1">
+    <title>Change Request&#8482; - <%: Page.Title %></title>
+  
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    
+    </asp:PlaceHolder>
+ 
+    <link href="Content/Site.css" rel="stylesheet" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Content/bootstrap.css" rel="stylesheet" media='all' />
+    <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
+    <%--    <link href="Content/font-awesome.min.css" rel="stylesheet" />--%>
+    <link href="Content/slideOutMenu/component.css" rel="stylesheet" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/zabuto_calendar/1.6.4/zabuto_calendar.css" />
+    <style>
+        body {
+            background-color: #e1e1e1;
+        }
+
+        #navbarNav ul li.active a {
+            text-decoration: none;
+            background-color: #ff4612;
+            color: #ffffff;
+            padding: 15px;
+            border: solid 0px #ff4612;
+            -moz-transition: all 0.3s linear;
+            -webkit-transition: all 0.3s linear;
+            transition: all 0.1s linear;
+        }
+
+        #navbarNav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            border: solid 0px #ff4612;
+            -moz-transition: all 0.3s linear;
+            -webkit-transition: all 0.3s linear;
+            transition: all 0.1s linear;
+        }
+
+            #navbarNav ul li a:hover {
+                background-color: #dad1cc;
+                color: #000000;
+                padding: 15px;
+                text-align: center;
+                border: solid 0px #000;
+                -moz-transition: all 0.3s linear;
+                -webkit-transition: all 0.3s linear;
+                transition: all 0.1s linear;
+                border-radius: 4px;
+            }
+    </style>
+
+
+
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="Scripts/popper.js"></script>
+    <%--    <script src="Scripts/bootstrap.js"></script>--%>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js"></script>
+
+    <script src="Scripts/propeller.js"></script>
+    <script src="Scripts/modernizr.custom.js"></script>
+    <script src="Scripts/classie.js"></script>
+    <script src="Scripts/rangeslider.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="Scripts/custom/bnfData.js"></script>
+      <script src="Scripts/custom/highcharts.js"></script>
+    <script src="Scripts/custom/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/variable-pie.js"></script>
+    <script src="Scripts/custom/zabuto_calendar.min.js"></script>
+
+    <%--<script src="Scripts/slideOutenuBottom.js"></script>--%>
+    <script>
+          tinymce.init({
+    selector: '#mytextarea'
+  });
+
+//      $(window).on("beforeunload", function() { 
+//    return confirm("Do you really want to close?"); 
+//})
+
+        $(function () {
+
+
+            });
+        
+
+
+    </script>
+
+
+
+</head>
+<body>
+
+    <form runat="server">
+        <asp:ScriptManager runat="server" EnablePageMethods="true">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <%--    <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />--%>
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+     
+        <div class="navbar fixed-top navbar-expand-lg navbar-light row p-2" style="background-color: #3c3c3c">
+           
+            <div class="col-lg-10"> <div class="collapse navbar-collapse active" id="navbarNav">
+                <a href="Home.aspx" class="border-0"><img src="Includes/Images/FasQuoteLogo.png" class="my-0 my-lg-0 mr-3"></a>
+                <ul id="navBar_Members"  class="navbar-nav">
+                    <li class="nav-item mr-3"><a title="Nav-Dashboard~Home.aspx" class="" style="width: 180px; text-decoration: none;cursor:pointer">Change Requests Dashboard</a></li>                    
+
+                    <li class="nav-item mr-3">
+                        <div class="dropdown">
+                            <a style="width: 200px; cursor: pointer; text-decoration: none" class="dropdown-toggle" id="dropdownCreateQuoteButton" data-toggle="dropdown">Change Requests</a>
+                            <div id="menuHover" class="dropdown-menu dropdown-menu-large border-dark" style="top: 95%" aria-labelledby="dropdownCreateQuoteButton">
+                                <a href="#" class="dropdown-item text-fasQuoteOrange p-2 d-flex align-content-left"" title="Nav-BnF~createQuote_BnF.aspx"><small class="spnBnfText font-weight-bold">Create Change Request</small></a>
+                                <a href="#" class="dropdown-item text-fasQuoteOrange p-2 d-flex align-content-left"" title="Nav-BnF~createQuote_BnF.aspx"><small class="spnBnfText font-weight-bold">Current Change Requests</small></a>
+                                <a href="#" class="dropdown-item text-fasQuoteOrange p-2 d-flex align-content-left"" title="Nav-BnF~createQuote_BnF.aspx"><small class="spnBnfText font-weight-bold">CRs for Review</small></a>
+                                <a href="#" class="dropdown-item text-fasQuoteOrange p-2 d-flex align-content-left"" title="Nav-BnF~createQuote_BnF.aspx"><small class="spnBnfText font-weight-bold">CRs for Approval</small></a>
+                                <a href="#" class="dropdown-item text-fasQuoteOrange p-2 d-flex align-content-left"" title="Nav-BnF~createQuote_BnF.aspx"><small class="spnBnfText font-weight-bold">Approved CRs</small></a>
+                                <a href="#" class="dropdown-item text-fasQuoteOrange p-2 d-flex align-content-left"" title="Nav-BnF~createQuote_BnF.aspx"><small class="spnBnfText font-weight-bold">Completed CRs</small></a>
+                                <a href="#" class="dropdown-item text-fasQuoteOrange p-2 d-flex align-content-left"" title="Nav-BnF~createQuote_BnF.aspx"><small class="spnBnfText font-weight-bold">Archived CRs</small></a>
+
+                            </div>
+
+                        </div>
+                    </li>
+
+                                        <li class="nav-item mr-3">
+                        <div class="dropdown">
+                            <a style="width: 200px; cursor: pointer; text-decoration: none" class="dropdown-toggle" id="dropdownCreateQuoteButton" data-toggle="dropdown">Build Requests</a>
+                            <div id="menuHover" class="dropdown-menu dropdown-menu-large border-dark" style="top: 95%" aria-labelledby="dropdownCreateQuoteButton">
+                                <a href="#" class="dropdown-item text-fasQuoteOrange p-2 d-flex align-content-left"" title="Nav-BnF~createQuote_BnF.aspx"><small class="spnBnfText font-weight-bold">Create Build Request</small></a>
+                                <a href="#" class="dropdown-item text-fasQuoteOrange p-2 d-flex align-content-left"" title="Nav-BnF~createQuote_BnF.aspx"><small class="spnBnfText font-weight-bold">All Build Requests</small></a>
+
+                            </div>
+
+                        </div>
+                    </li>
+
+                </ul>
+                
+
+            </div></div>
+            <div class="col-lg-2"><div id="rightNav">
+                <div class="row">
+               
+                   
+                    <div class="col-lg-4">
+                        <div class="circle mr-2">
+                        <asp:Label ID="lblLoggedInUser" CssClass="text-light border-fasQuoteOrange h4" style="line-height:40px;padding-left:11px;display:none"  runat="server" Text="Label"></asp:Label>
+                        <asp:Label ID="lblLoggedInUser1" CssClass="text-light border-fasQuoteOrange h4" style="line-height:40px;padding-left:11px;"  runat="server" Text="Label"></asp:Label>
+                <asp:HiddenField ID="lblLoggedInEmail" runat="server" />       </div></div>
+                </div>
+            
+            </div></div>
+        </div>
+
+           
+  
+
+        
+
+
+        <div id="mainContentDiv" class="container-fluid" >
+            <div class="row">
+                <div class="col-lg-1 mr-4"></div>
+                <div class="col-lg-9 ml-5">
+                    <asp:HiddenField ID="lnkGroups" runat="server" />
+                    <asp:HiddenField ID="ddlValues" runat="server" />
+                    <asp:HiddenField ID="rbValues" runat="server" />
+                    <asp:HiddenField ID="ddlStep2Values" runat="server" />
+
+                    <asp:HiddenField ID="ddlMnAStep1Val" runat="server" />
+                    <asp:HiddenField ID="ddlMnAStep2Val" runat="server" />
+                    
+                    <div class="bg-light" style="margin-top: 60px; margin-bottom: 150px;">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
+
+                    </div>
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
+        </div>
+
+
+
+
+        <nav class="navbar fixed-bottom border content" style="background-color: #ebebeb">
+            <p class="text-left text-dark"><small>Copyright &copy; <%: DateTime.Now.Year %> Change Request - Fasken. All rights reserved.</small></p>
+            <img src="Includes/Images/FooterLogoV2.png" class="float-lg-right" />
+        </nav>
+
+
+
+
+            
+
+
+
+
+
+
+    </form>
+</body>
+</html>

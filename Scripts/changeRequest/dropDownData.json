@@ -1,0 +1,71 @@
+{
+  "driver": [
+    "Maintainance",
+    "Bug/Problem",
+    "Upgrade",
+    "Performance",
+    "Project",
+    "Other"
+  ],
+  "priority": [
+    "Emergency",
+    "High",
+    "Normal",
+    "Low"
+  ],
+  "risk": [
+    "Low",
+    "Medium",
+    "High"
+  ],
+  "serviceImpacted": [
+    "AD",
+    "Billback",
+    "C2Atom",
+    "CRM",
+    "Document Management",
+    "Extranet",
+    "Financial System",
+    "Imaging",
+    "LAN",
+    "LegalKEY",
+    "Mail",
+    "MSOFfice/Related Apps",
+    "PATTSY",
+    "Sharepoint",
+    "Telephony",
+    "VideoConference",
+    "Wall Builder (IntApp)",
+    "WAN",
+    "Workflow",
+    "Other Applications"
+  ],
+
+  "officeLocations": [
+    "Firmwide",
+    "Vancouver",
+    "Surrey",
+    "Calgary",
+    "Toronto",
+    "Ottawa",
+    "Monrteal",
+    "Quebec",
+    "London",
+    "Johannesburg"
+  ],
+
+  "reviewers": [
+    "Aaron Fahlman",
+    "Alex Kastanis",
+    "Barbra Kastanis",
+    "Bart Synowiec",
+    "Frédéric Charron",
+    "Greg Christensen",
+    "Pierre Allaire",
+    "Pierre Tetreault",
+    "Stanley Barnwell"
+  ]
+
+
+
+}
